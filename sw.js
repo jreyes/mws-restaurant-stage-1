@@ -1,14 +1,14 @@
 const STATIC_CACHE = 'rr-precache';
 const STATIC_CACHE_PATHS = [
-  "/",
-  "/index.html",
-  "/restaurant.html",
-  "/scripts/dbhelper.js",
-  "/scripts/main.js",
-  "/scripts/restaurant_info.js",
-  "/scripts/sw-register.js",
-  "/styles/main.css",
-  "/favicon.ico"
+  "./",
+  "./index.html",
+  "./restaurant.html",
+  "./scripts/dbhelper.js",
+  "./scripts/main.js",
+  "./scripts/restaurant_info.js",
+  "./scripts/sw-register.js",
+  "./styles/main.css",
+  "./favicon.ico"
 ];
 
 //Install stage sets up the cache-array to configure pre-cache content
@@ -35,11 +35,11 @@ self.addEventListener('fetch', evt => {
   const requestUrl = new URL(evt.request.url);
   console.log('[RR-PRECACHE] The service worker is serving the asset.' + requestUrl);
   if (evt.request.url.startsWith(self.location.origin)) {
-    if (requestUrl.pathname.startsWith('/restaurant.html')) {
-      evt.respondWith(fromCacheOrNetwork('/restaurant.html', evt.request));
+    if (requestUrl.pathname.endsWith('restaurant.html')) {
+      evt.respondWith(fromCacheOrNetwork(requestUrl.pathname, evt.request));
       return;
     }
-    if (requestUrl.pathname.startsWith('/images/') && !requestUrl.pathname.endsWith('x200.jpg')) {
+    if (requestUrl.pathname.includes('/images/') && !requestUrl.pathname.endsWith('x200.jpg')) {
       evt.respondWith(fetchFeatureImage(evt.request));
       return;
     }
@@ -68,7 +68,7 @@ function fetchFeatureImage(request) {
           .then(() => networkResponse);
 
       }).catch(() => {
-        const thumbnailName = new URL(request.url).pathname.replace.replace('.jpg', 'x200.jpg');
+        const thumbnailName = new URL(request.url).pathname.replace('.jpg', 'x200.jpg');
         return caches
           .match(thumbnailName)
           .then(thumbnailResponse => thumbnailResponse);
