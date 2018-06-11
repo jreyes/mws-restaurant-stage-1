@@ -1,8 +1,8 @@
 # Mobile Web Specialist Certification Course
----
 
 By [Johann Reyes](https://www.linkedin.com/in/johannreyes/)
 
+Demo can be found at [https://jreyes.github.io/mws-restaurant-stage-1/](https://jreyes.github.io/mws-restaurant-stage-1/)
 
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
