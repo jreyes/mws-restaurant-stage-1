@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Info</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Restaurant Reviews">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Restaurant Reviews">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body>
+
+<div class="wrapper">
+
+    <header>
+        <nav>
+            <h1><a href="/">Restaurant Reviews</a></h1>
+        </nav>
+        <ul id="breadcrumb" aria-label="Breadcrumb">
+            <li><a href="/" title="Return to the home page">Home</a></li>
+        </ul>
+    </header>
+
+    <main id="maincontent">
+        <section aria-hidden="true" role="application">
+            <div class="map-offline">
+                <h2>Google Maps</h2>
+                <p>Connect to a Wifi or Mobile network to view the map.</p>
+            </div>
+            <div id="map"></div>
+        </section>
+        <section id="restaurant-container">
+            <div id="restaurant-description">
+                <div>
+                    <h2 id="restaurant-name"></h2>
+                    <p id="restaurant-type"></p>
+                    <p id="restaurant-address"></p>
+                </div>
+            </div>
+            <div>
+                <h2>Hours of operation</h2>
+                <table id="restaurant-hours"></table>
+            </div>
+            <div>
+                <h2>Reviews</h2>
+                <ul id="reviews-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        Copyright (c) 2018 <a href="/"><strong>Restaurant Reviews</strong></a> All Rights Reserved.
+    </footer>
+
+</div>
+<script type="text/javascript" src="scripts/dbhelper.js"></script>
+<script type="text/javascript" src="scripts/restaurant_info.js"></script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFfiyNWRmcvJYL1V3hwpBFG5PDjTlmEOc&libraries=places&callback=initMap"></script>
+<script type="text/javascript" src="scripts/sw-register.js"></script>
+
+</body>
+</html>
