@@ -150,7 +150,7 @@ class DBHelper {
    */
   static imageUrlForRestaurant(restaurant, size) {
     const name = restaurant.photograph.replace('.jpg', '');
-    return (`/images/${name}${size}.jpg`);
+    return (`images/${name}${size}.jpg`);
   }
 
   /**
